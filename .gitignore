@@ -1,0 +1,14 @@
+*.DS_Store
+*node_modules
+*package-lock.json
+*.zip
+*/*.zip
+.vscode/*
+/dist
+/build
+*bundle_*
+/commitid.txt
+/chromev2
+appzip
+extension
+coverage
