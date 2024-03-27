@@ -9,14 +9,15 @@ base on [Create React App](https://github.com/facebook/create-react-app)
 ## blockchain list
 > alphabetical order
 
-- [x] Aptos
-- [x] Bitcoin
-- [x] Cosmos
-- [x] EVM
+- [x] Aptos: /src/dapps/aptos.js
+- [x] Bitcoin: /src/dapps/unisat.js
+- [x] Cosmos: /src/dapps/cosmos.js
+- [x] EVM: /src/dapps/eth.js
 - [ ] Near
-- [x] Solana
-- [x] Sui
-- [x] Ton
+- [x] Solana: /src/dapps/solana.js
+- [x] Starknet: /src/dapps/starknet.js
+- [x] Sui: /src/dapps/sui.js
+- [x] Ton: /src/dapps/ton.js
 - [ ] Tron
 
 ## reference
