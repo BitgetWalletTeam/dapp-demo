@@ -1,23 +1,24 @@
 ## how to run 
+base on [Create React App](https://github.com/facebook/create-react-app)
 
 1. `npm install`
 2. `npm start`
 3. Open [http://localhost:3000](http://localhost:3000) 
 
 
-## list
+## blockchain list
+> alphabetical order
 
-1. [ ] EVM
-2. [ ] Bitcoin
-3. [ ] Solana
-4. [ ] Tron
-5. [ ] Aptos
-6. [ ] Sui
-7. [ ] Cosmos
-8. [ ] Near
-9. [ ] Ton
+- [x] Aptos
+- [x] Bitcoin
+- [x] Cosmos
+- [x] EVM
+- [ ] Near
+- [x] Solana
+- [x] Sui
+- [x] Ton
+- [ ] Tron
 
-## 说明
-
-1. for bitget dapp developers
-2. base on [Create React App](https://github.com/facebook/create-react-app).
+## reference
+1. [Install Bitget Wallet](https://web3.bitget.com/en/wallet-download)
+2. [Bitget Wallet Docs](https://web3.bitget.com/en/docs/provider-api/evm.html)
