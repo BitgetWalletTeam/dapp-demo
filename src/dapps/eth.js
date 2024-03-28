@@ -54,7 +54,7 @@ export default function EthDApp() {
   };
   return (
     <>
-      <h2>Unisat DApp Demo</h2>
+      <h2>EVM DApp Demo</h2>
       <div style={{ display: "grid", gap: 20 }}>
         {[
           connect,
