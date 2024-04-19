@@ -19,12 +19,13 @@ import UnisatDApp from "./dapps/unisat";
 import SolanaDApp from "./dapps/solana";
 import EthDApp from "./dapps/eth";
 import TonDApp from "./dapps/ton";
+import TonConnectDApp from "./dapps/tonConnect";
 
 // 但是使用最新solana，需要配置一些Buffer内容否则会报错：‘ReferenceError: Buffer is not defined’
 // window.Buffer = Buffer;
 
 export default function App() {
-  const chains = ["aptos", "cosmos", "starknet", "sui", "unisat", "solana", "ton"];
+  const chains = ["aptos", "cosmos", "starknet", "sui", "unisat", "solana", "ton", 'tonConnect'];
   return (
     <>
       <BrowserRouter>
@@ -46,6 +47,7 @@ export default function App() {
           <Route exact path="/solana" element={<SolanaDApp />} />
           {/* <Route exact path="/eth" element={<EthDApp />} /> */}
           <Route exact path="/ton" element={<TonDApp />} />
+          <Route exact path="/tonConnect" element={<TonConnectDApp />} />
         </Routes>
       </BrowserRouter>
     </>

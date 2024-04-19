@@ -1,29 +1,27 @@
+import { TonConnectUI } from "@tonconnect/ui";
 import React, { useState } from "react";
 
-const provider = window.bitkeep?.ton;
+const tonConnectUI = new TonConnectUI({
+  manifestUrl: "https://myapp/tonconnect-manifest.json",
+  //   buttonRootId: "",
+});
 
-export default function TonDApp() {
+export default function TonConnectDApp() {
   const [currentInfo, setCurrentInfo] = useState({});
-  const connect = async () => {
-    await provider.send('ton_requestWallets');
-    return await provider.send('ton_requestAccounts');
-  }
-  const sign = async () => {
-    return await provider.send(
-      'ton_rawSign',
-      [{
-          data: 'ABCD123456'
-      }]
-    );
+  const openModal = async () => await tonConnectUI.openModal();
+  const getWallets = async () => await tonConnectUI.getWallets();
+  const onStatusChange = async () => {
+    const unsubscribe = tonConnectUI.onStatusChange((walletInfo) => {
+      // update state/reactive variables to show updates in the ui
+      console.log("walletInfo", walletInfo);
+    });
+    return unsubscribe;
   }
   return (
     <>
-      <h2>Ton DApp Demo</h2>
+      <h2>Ton Connect DApp Demo</h2>
       <div style={{ display: "grid", gap: 20 }}>
-        {[
-          connect,
-          sign,
-        ].map((func, index) => (
+        {[openModal, getWallets, onStatusChange].map((func, index) => (
           <div key={index}>
             <button
               onClick={async () => {
