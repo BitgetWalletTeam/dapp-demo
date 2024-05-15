@@ -19,3 +19,18 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+.walletContent{
+  display: flex;
+  align-items: center;
+  background-color: #ddd;
+  padding: 5px 10px;
+  margin: 5px 0;
+  gap: 10px;
+  width: 300px;
+  cursor: pointer;
+}
+
+.connectIcon{
+  height: 35px;
+}

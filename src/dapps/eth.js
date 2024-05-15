@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const provider = window.ethereum;
-console.log('eth provider', provider);
 
 export default function EthDApp() {
   const [currentInfo, setCurrentInfo] = useState({});

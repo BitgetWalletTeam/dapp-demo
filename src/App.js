@@ -12,6 +12,7 @@ import {
 import "./App.css";
 
 import AptosDApp from "./dapps/aptos";
+import Aptos62DApp from "./dapps/aip-62";
 import CosmosDApp from "./dapps/cosmos";
 import StarknetApp from "./dapps/starknet";
 import SuiDApp from "./dapps/sui";
@@ -25,7 +26,7 @@ import TonConnectDApp from "./dapps/tonConnect";
 // window.Buffer = Buffer;
 
 export default function App() {
-  const chains = ["aptos", "cosmos", "starknet", "sui", "unisat", "solana", "ton", 'tonConnect'];
+  const chains = ["aptos", "aptos62", "cosmos", "starknet", "sui", "unisat", "solana", "ton", 'tonConnect'];
   return (
     <>
       <BrowserRouter>
@@ -40,6 +41,7 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={<StarknetApp />} />
           <Route exact path="/aptos" element={<AptosDApp />} />
+          <Route exact path="/aptos62" element={<Aptos62DApp />} />
           <Route exact path="/cosmos" element={<CosmosDApp />} />
           <Route exact path="/starknet" element={<StarknetApp />} />
           <Route exact path="/sui" element={<SuiDApp />} />

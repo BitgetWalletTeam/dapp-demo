@@ -8,7 +8,6 @@ import {
 } from "@solana/web3.js";
 
 const provider = window.bitkeep?.solana;
-console.log("solana", provider);
 
 // https://web3.bitget.com/zh-CN/docs/provider-api/solana.html
 

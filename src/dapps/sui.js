@@ -12,7 +12,6 @@ const event = new CustomEvent("wallet-standard:app-ready", {
 window.dispatchEvent(event);
 
 const provider = GlobalWallet.suiMainnet;
-console.log("sui provider", provider);
 
 export default function SuiDApp() {
   let account = provider.account;

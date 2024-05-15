@@ -281,7 +281,9 @@ export default function StarkNetDApp() {
       <div className="dapp-part">
         <button
           onClick={async () => {
-            const wallet = await starknetkitconnect();
+            try {
+              const wallet = await starknetkitconnect()
+            } catch (error) {}
           }}
         >
           starknetkitconnect

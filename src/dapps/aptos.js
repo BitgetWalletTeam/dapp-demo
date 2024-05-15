@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BitgetWallet } from "@bitget-wallet/aptos-wallet-adapter";
 
 const provider = window.bitkeep?.aptos;
 
@@ -67,6 +68,15 @@ export default function AptosDApp() {
         }}
       >
         connect
+      </button>
+      <button
+        onClick={async () => {
+          const bg = new BitgetWallet();
+          const res = bg.deeplinkProvider({url: 'dappPageUrl'})
+          console.log(res);
+        }}
+      >
+        adapterConnect
       </button>
 
       <br />
