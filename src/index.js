@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <AptosWalletAdapterProvider
       // plugins={wallets}
-      autoConnect={true}
+      autoConnect={false}
     >
       <App />
     </AptosWalletAdapterProvider>

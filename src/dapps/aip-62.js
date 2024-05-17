@@ -18,6 +18,7 @@ export default function Aptos62DApp() {
     signTransaction,
     signMessage,
     signMessageAndVerify,
+    changeNetwork
   } = useWallet();
   const [currentInfo, setCurrentInfo] = useState({});
   const [params, setParams] = useState("");
@@ -34,6 +35,9 @@ export default function Aptos62DApp() {
   //     }
   // }, []);
   const getWallets = () => wallets;
+  const changeNet = (args = ['devnet']) => changeNetwork('devnet');
+  const providerSwitchNet = async (args = ['devnet']) => await provider.changeNetwork('devnet');
+  const getNetwork = () => network;
 
   const signMsg = async (
     args = ["The message to be signed and displayed to the user", "1"],
@@ -47,7 +51,6 @@ export default function Aptos62DApp() {
   const signTx = async () => {
     // if (!connected) return;
     const transaction = {
-      // rawTransaction: 1,
       arguments: ["100000", "330679"],
       function:
         "0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa::router::swap_exact_input",
@@ -134,6 +137,9 @@ export default function Aptos62DApp() {
       <div style={{ display: "grid", gap: 20 }}>
         {[
           getWallets,
+          getNetwork,
+          providerSwitchNet,
+          changeNet,
           disconnect,
           signMsg,
           signTx,
