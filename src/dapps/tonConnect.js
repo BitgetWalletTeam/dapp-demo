@@ -2,7 +2,7 @@ import { TonConnectUI } from "@tonconnect/ui";
 import React, { useState } from "react";
 
 const tonConnectUI = new TonConnectUI({
-  manifestUrl: "https://myapp/tonconnect-manifest.json",
+  manifestUrl: "https://app.ston.fi/tonconnect-manifest.json",
   //   buttonRootId: "",
 });
 
@@ -36,6 +36,7 @@ export default function TonConnectDApp() {
               }}
             >
               {func.name}
+              button
             </button>
           </div>
         ))}
