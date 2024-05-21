@@ -18,7 +18,7 @@ export default function Aptos62DApp() {
     signTransaction,
     signMessage,
     signMessageAndVerify,
-    changeNetwork
+    changeNetwork,
   } = useWallet();
   const [currentInfo, setCurrentInfo] = useState({});
   const [params, setParams] = useState("");
@@ -35,8 +35,9 @@ export default function Aptos62DApp() {
   //     }
   // }, []);
   const getWallets = () => wallets;
-  const changeNet = (args = ['devnet']) => changeNetwork('devnet');
-  const providerSwitchNet = async (args = ['devnet']) => await provider.changeNetwork('devnet');
+  const changeNet = (args = ["devnet"]) => changeNetwork("devnet");
+  const providerSwitchNet = async (args = ["devnet"]) =>
+    await provider.changeNetwork("devnet");
   const getNetwork = () => network;
 
   const signMsg = async (
@@ -48,65 +49,54 @@ export default function Aptos62DApp() {
       nonce: args[1],
     });
   };
-  const signTx = async () => {
+  const signTx = async (
+    args = [
+      '{"arguments":["10000","32539"],"function":"0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa::router::swap_exact_input_doublehop","type":"entry_function_payload","type_arguments":["0x1::aptos_coin::AptosCoin","0x5e156f1207d0ebfa19a9eeff00d62a282278fb8719f4fab3a586a0a2c0fffbea::coin::T","0x159df6b7689437016108a019fd5bef736bac692b6d4a1f10c941f6fbb9a74ca6::oft::CakeOFT"]}'
+    ]
+  ) => {
     // if (!connected) return;
-    const transaction = {
-      arguments: ["100000", "330679"],
-      function:
-        "0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa::router::swap_exact_input",
-      type: "entry_function_payload",
-      type_arguments: [
-        "0x1::aptos_coin::AptosCoin",
-        "0x159df6b7689437016108a019fd5bef736bac692b6d4a1f10c941f6fbb9a74ca6::oft::CakeOFT",
-      ],
-    };
-    return await signTransaction(transaction);
+    return await signTransaction(JSON.parse(args?.[0]));
   };
-  const providerSignTx = async () => {
+  const providerSignTx = async (
+    args = [
+      '{"arguments":["10000","32539"],"function":"0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa::router::swap_exact_input_doublehop","type":"entry_function_payload","type_arguments":["0x1::aptos_coin::AptosCoin","0x5e156f1207d0ebfa19a9eeff00d62a282278fb8719f4fab3a586a0a2c0fffbea::coin::T","0x159df6b7689437016108a019fd5bef736bac692b6d4a1f10c941f6fbb9a74ca6::oft::CakeOFT"]}'
+    ]
+  ) => {
     await provider.connect();
     await provider.account();
-    const transaction = {
-      arguments: ["100000", "330679"],
-      function:
-        "0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa::router::swap_exact_input",
-      type: "entry_function_payload",
-      type_arguments: [
-        "0x1::aptos_coin::AptosCoin",
-        "0x159df6b7689437016108a019fd5bef736bac692b6d4a1f10c941f6fbb9a74ca6::oft::CakeOFT",
-      ],
-    };
-    return await provider.signTransaction(transaction);
+    return await provider.signTransaction(JSON.parse(args?.[0]));
   };
-  const signAndSubmitTx = async () => {
+  const signAndSubmitTx = async (
+    args = [
+      '{"functionArguments":["10000","32539"],"function":"0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa::router::swap_exact_input_doublehop","type":"entry_function_payload","typeArguments":["0x1::aptos_coin::AptosCoin","0x5e156f1207d0ebfa19a9eeff00d62a282278fb8719f4fab3a586a0a2c0fffbea::coin::T","0x159df6b7689437016108a019fd5bef736bac692b6d4a1f10c941f6fbb9a74ca6::oft::CakeOFT"]}'
+    ]
+  ) => {
     if (!connected) return;
-    const transaction = {
-      functionArguments: ["100000", "330679"],
-      function:
-        "0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa::router::swap_exact_input",
-      type: "entry_function_payload",
-      typeArguments: [
-        "0x1::aptos_coin::AptosCoin",
-        "0x159df6b7689437016108a019fd5bef736bac692b6d4a1f10c941f6fbb9a74ca6::oft::CakeOFT",
-      ],
-    };
     return await signAndSubmitTransaction({
-      data: transaction,
+      data: JSON.parse(args?.[0]),
       options: {},
     });
   };
-  const providerSignAndSubmitTx = async () => {
+  const providerSignAndSubmitTx = async (
+    args = [
+      '{"functionArguments":["10000","32539"],"function":"0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa::router::swap_exact_input_doublehop","type":"entry_function_payload","typeArguments":["0x1::aptos_coin::AptosCoin","0x5e156f1207d0ebfa19a9eeff00d62a282278fb8719f4fab3a586a0a2c0fffbea::coin::T","0x159df6b7689437016108a019fd5bef736bac692b6d4a1f10c941f6fbb9a74ca6::oft::CakeOFT"]}'
+    ]
+  ) => {
     if (!connected) return;
-    const transaction = {
-      arguments: ["100000", "330679"],
-      function:
-        "0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa::router::swap_exact_input",
-      type: "entry_function_payload",
-      type_arguments: [
-        "0x1::aptos_coin::AptosCoin",
-        "0x159df6b7689437016108a019fd5bef736bac692b6d4a1f10c941f6fbb9a74ca6::oft::CakeOFT",
-      ],
-    };
-    return await provider.signAndSubmitTransaction(transaction);
+    // {
+    //   "type": "entry_function_payload",
+    //   "type_arguments": [
+    //     "0x1::aptos_coin::AptosCoin",
+    //     "0x5e156f1207d0ebfa19a9eeff00d62a282278fb8719f4fab3a586a0a2c0fffbea::coin::T",
+    //     "0x159df6b7689437016108a019fd5bef736bac692b6d4a1f10c941f6fbb9a74ca6::oft::CakeOFT"
+    //   ],
+    //   "arguments": [
+    //     "10000",
+    //     "32539"
+    //   ],
+    //   "function": "0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa::router::swap_exact_input_doublehop"
+    // }
+    return await provider.signAndSubmitTransaction(JSON.parse(args?.[0]));
   };
 
   return (
@@ -132,7 +122,7 @@ export default function Aptos62DApp() {
         type="text"
         value={params}
         onChange={(e) => setParams(e.target.value)}
-        placeholder={`multi params divide by:','`}
+        placeholder={`multi params divide by:';;'`}
       />
       <div style={{ display: "grid", gap: 20 }}>
         {[
@@ -153,9 +143,9 @@ export default function Aptos62DApp() {
                 try {
                   setCurrentInfo({
                     "function name": func.name,
-                    "function params": params.split(","),
+                    "function params": params.split(";;"),
                     "function returns": await func(
-                      params ? params.split(",") : undefined,
+                      params ? params.split(";;") : undefined,
                     ),
                   });
                 } catch (e) {
