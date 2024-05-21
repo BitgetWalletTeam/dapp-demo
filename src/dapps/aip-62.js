@@ -99,6 +99,31 @@ export default function Aptos62DApp() {
     return await provider.signAndSubmitTransaction(JSON.parse(args?.[0]));
   };
 
+  const funcArr = [
+    getWallets,
+    getNetwork,
+    providerSwitchNet,
+    changeNet,
+    disconnect,
+    signMsg,
+    signTx,
+    providerSignTx,
+    signAndSubmitTx,
+    providerSignAndSubmitTx,
+  ]
+  // 防止name丢失
+  const funcNameArr = [
+    'getWallets',
+    'getNetwork',
+    'providerSwitchNet',
+    'changeNet',
+    'disconnect',
+    'signMsg',
+    'signTx',
+    'providerSignTx',
+    'signAndSubmitTx',
+    'providerSignAndSubmitTx',
+  ]
   return (
     <>
       {wallets.map((it, i) => (
@@ -125,18 +150,7 @@ export default function Aptos62DApp() {
         placeholder={`multi params divide by:';;'`}
       />
       <div style={{ display: "grid", gap: 20 }}>
-        {[
-          getWallets,
-          getNetwork,
-          providerSwitchNet,
-          changeNet,
-          disconnect,
-          signMsg,
-          signTx,
-          providerSignTx,
-          signAndSubmitTx,
-          providerSignAndSubmitTx,
-        ].map((func, index) => (
+        {funcArr.map((func, index) => (
           <div key={index}>
             <button
               onClick={async () => {
@@ -153,7 +167,7 @@ export default function Aptos62DApp() {
                 }
               }}
             >
-              {func.name}
+              {func?.name || funcNameArr[index]}
             </button>
           </div>
         ))}
