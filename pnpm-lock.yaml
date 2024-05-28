@@ -45,8 +45,8 @@ dependencies:
     specifier: ^2.2.6
     version: 2.2.6
   '@tonconnect/ui':
-    specifier: ^2.0.0
-    version: 2.0.0
+    specifier: ^2.0.2
+    version: 2.0.2
   '@unisat/wallet-utils':
     specifier: ^1.0.0
     version: 1.0.0
@@ -3605,8 +3605,8 @@ packages:
       tweetnacl-util: 0.15.1
     dev: false
 
-  /@tonconnect/sdk@3.0.0:
-    resolution: {integrity: sha512-pg0OC//c3LU6jwH2hiLJrDXxITIfNwj0tFTV55xS6FXF2I9qzvVKTUPo4OHr1w3MZVJ7oCw4uz7gKZ+bcqK2hg==}
+  /@tonconnect/sdk@3.0.2:
+    resolution: {integrity: sha512-TEPIoczYZhJcXu9pixYJimGlYKLWLSkgJZgC2vwHLObwuqoiOa06BTOlooaxoNFgZ0LOgIzt+QRs8tF8jyYsSw==}
     dependencies:
       '@tonconnect/isomorphic-eventsource': 0.0.2
       '@tonconnect/isomorphic-fetch': 0.0.3
@@ -3615,10 +3615,10 @@ packages:
       - encoding
     dev: false
 
-  /@tonconnect/ui@2.0.0:
-    resolution: {integrity: sha512-opwroucFYf45SbnuwLJJKrlObZTAGqcf29aZr9WuVEpwIPpREsRxK80QsUBD5s7HEqn5whAdvigN/NB4pRCaYw==}
+  /@tonconnect/ui@2.0.2:
+    resolution: {integrity: sha512-x/iI7yX8yMvs7HKZ1wm3Quz5yg8mJJwZQlg+DYHGBvqdx0JMqXbF8YOcvGdh/Lhmrq92ahE8QIwX+85cS80vjQ==}
     dependencies:
-      '@tonconnect/sdk': 3.0.0
+      '@tonconnect/sdk': 3.0.2
       classnames: 2.5.1
       deepmerge: 4.3.1
       ua-parser-js: 1.0.37
@@ -12274,6 +12274,7 @@ packages:
 
   /rimraf@2.6.3:
     resolution: {integrity: sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
     dependencies:
       glob: 7.2.3

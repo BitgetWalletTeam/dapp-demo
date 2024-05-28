@@ -3,25 +3,81 @@ import React, { useState } from "react";
 
 const tonConnectUI = new TonConnectUI({
   manifestUrl: "https://app.ston.fi/tonconnect-manifest.json",
-  //   buttonRootId: "",
+  walletsListConfiguration: {
+    includeWallets: [
+      {
+        name: "Bitget Wallet",
+        appName: "bitgetTonWallet",
+        imageUrl:
+          "https://raw.githubusercontent.com/bitkeepwallet/download/main/logo/png/bitget%20wallet_logo_iOS.png",
+        universalLink: "https://bkcode.vip/ton-connect",
+        bridgeUrl: "https://bridge.tonapi.io/bridge",
+        platforms: ["ios", "android", "chrome"],
+      },
+    ],
+  },
 });
 
 export default function TonConnectDApp() {
   const [currentInfo, setCurrentInfo] = useState({});
   const openModal = async () => await tonConnectUI.openModal();
+  const closeModal = async () => tonConnectUI.closeModal();
+  const currentWallet = () => tonConnectUI.wallet;
+  const currentWalletInfo = () => tonConnectUI.walletInfo;
+  const currentAccount = () => tonConnectUI.account;
+  const currentIsConnectedStatus = () => tonConnectUI.connected;
+  const disconnect = async () => await tonConnectUI.disconnect();
+  const openBitgetTonWallet = async () =>
+    await tonConnectUI.openSingleWalletModal("bitgetTonWallet");
   const getWallets = async () => await tonConnectUI.getWallets();
   const onStatusChange = async () => {
     const unsubscribe = tonConnectUI.onStatusChange((walletInfo) => {
-      // update state/reactive variables to show updates in the ui
       console.log("walletInfo", walletInfo);
     });
     return unsubscribe;
+  };
+  const onModalChange = async () => {
+    const unsubscribe = tonConnectUI.onModalStateChange((WalletsModalState) => {
+      console.log("WalletsModalState", WalletsModalState);
+    });
+    return unsubscribe;
+  };
+  const sendTransaction = async () => {
+    const transaction = {
+      validUntil: Math.floor(Date.now() / 1000) + 60, // 60 sec
+      messages: [
+        {
+          address: "EQBBJBB3HagsujBqVfqeDUPJ0kXjgTPLWPFFffuNXNiJL0aA",
+          amount: "20000000",
+          // stateInit: "base64bocblahblahblah==" // just for instance. Replace with your transaction initState or remove
+        },
+        {
+          address: "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn",
+          amount: "60000000",
+          // payload: "base64bocblahblahblah==" // just for instance. Replace with your transaction payload or remove
+        },
+      ],
+    };
+    return await tonConnectUI.sendTransaction(transaction);
   }
   return (
     <>
       <h2>Ton Connect DApp Demo</h2>
       <div style={{ display: "grid", gap: 20 }}>
-        {[openModal, getWallets, onStatusChange].map((func, index) => (
+        {[
+          openBitgetTonWallet,
+          openModal,
+          closeModal,
+          currentWallet,
+          currentWalletInfo,
+          currentAccount,
+          currentIsConnectedStatus,
+          disconnect,
+          getWallets,
+          onStatusChange,
+          onModalChange,
+          sendTransaction,
+        ].map((func, index) => (
           <div key={index}>
             <button
               onClick={async () => {

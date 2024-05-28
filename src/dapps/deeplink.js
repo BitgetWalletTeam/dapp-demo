@@ -15,7 +15,7 @@ import {
   WalletResponse,
   ConnectItemReply
 } from "@tonconnect/protocol";
-import debounce from 'lodash/debounce';
+// import debounce from 'lodash/debounce';
 
 const TonConnectBridgeType = {
   Remote: "remote",
@@ -48,6 +48,7 @@ class TonConnectRemoteBridgeService {
   }
 
   async open(connections) {
+    console.log('connections', connections);
     this.close();
 
     this.connections = connections.filter(
@@ -76,7 +77,8 @@ class TonConnectRemoteBridgeService {
 
     this.eventSource.addEventListener(
       "message",
-      debounce(this.handleMessage.bind(this), 200),
+      // debounce(this.handleMessage.bind(this), 200),
+      this.handleMessage.bind(this)
     );
 
     this.eventSource.addEventListener("open", () => {

@@ -21,6 +21,7 @@ import SolanaDApp from "./dapps/solana";
 import EthDApp from "./dapps/eth";
 import TonDApp from "./dapps/ton";
 import TonConnectDApp from "./dapps/tonConnect";
+import Deeplink from "./dapps/deeplink";
 
 // 但是使用最新solana，需要配置一些Buffer内容否则会报错：‘ReferenceError: Buffer is not defined’
 // window.Buffer = Buffer;
@@ -40,6 +41,7 @@ export default function App() {
 
         <Routes>
           <Route exact path="/" element={<Aptos62DApp />} />
+          <Route exact path="/deeplink" element={<Deeplink />} />
           <Route exact path="/aptos" element={<AptosDApp />} />
           <Route exact path="/aptos62" element={<Aptos62DApp />} />
           <Route exact path="/cosmos" element={<CosmosDApp />} />
