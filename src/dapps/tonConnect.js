@@ -60,6 +60,20 @@ export default function TonConnectDApp() {
     };
     return await tonConnectUI.sendTransaction(transaction);
   }
+  const funcNames = [
+    'openBitgetTonWallet',
+    'openModal',
+    'closeModal',
+    'currentWallet',
+    'currentWalletInfo',
+    'currentAccount',
+    'currentIsConnectedStatus',
+    'disconnect',
+    'getWallets',
+    'onStatusChange',
+    'onModalChange',
+    'sendTransaction',
+  ]
   return (
     <>
       <h2>Ton Connect DApp Demo</h2>
@@ -91,8 +105,7 @@ export default function TonConnectDApp() {
                 }
               }}
             >
-              {func.name}
-              button
+              {`${func?.name || funcNames[index]} Button`}
             </button>
           </div>
         ))}
