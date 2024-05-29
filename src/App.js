@@ -40,7 +40,7 @@ export default function App() {
         </div>
 
         <Routes>
-          <Route exact path="/" element={<Aptos62DApp />} />
+          <Route exact path="/" element={<TonConnectDApp />} />
           <Route exact path="/deeplink" element={<Deeplink />} />
           <Route exact path="/aptos" element={<AptosDApp />} />
           <Route exact path="/aptos62" element={<Aptos62DApp />} />
