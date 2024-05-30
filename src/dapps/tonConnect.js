@@ -8,10 +8,13 @@ const tonConnectUI = new TonConnectUI({
       {
         name: "Bitget Wallet",
         appName: "bitgetTonWallet",
+        jsBridgeKey: "bitgetTonWallet",
         imageUrl:
           "https://raw.githubusercontent.com/bitkeepwallet/download/main/logo/png/bitget%20wallet_logo_iOS.png",
-        universalLink: "https://bkcode.vip/ton-connect",
+        aboutUrl: "https://web3.bitget.com",
         bridgeUrl: "https://bridge.tonapi.io/bridge",
+        universalLink: "https://bkcode.vip/ton-connect",
+        deepLink: "bitkeep://",
         platforms: ["ios", "android", "chrome"],
       },
     ],
@@ -59,21 +62,21 @@ export default function TonConnectDApp() {
       ],
     };
     return await tonConnectUI.sendTransaction(transaction);
-  }
+  };
   const funcNames = [
-    'openBitgetTonWallet',
-    'openModal',
-    'closeModal',
-    'currentWallet',
-    'currentWalletInfo',
-    'currentAccount',
-    'currentIsConnectedStatus',
-    'disconnect',
-    'getWallets',
-    'onStatusChange',
-    'onModalChange',
-    'sendTransaction',
-  ]
+    "openBitgetTonWallet",
+    "openModal",
+    "closeModal",
+    "currentWallet",
+    "currentWalletInfo",
+    "currentAccount",
+    "currentIsConnectedStatus",
+    "disconnect",
+    "getWallets",
+    "onStatusChange",
+    "onModalChange",
+    "sendTransaction",
+  ];
   return (
     <>
       <h2>Ton Connect DApp Demo</h2>

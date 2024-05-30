@@ -14,7 +14,7 @@ import {
   Contract,
 } from "starknet";
 import { abi } from "../contracts/abi";
-import { connect as starknetkitconnect, disconnect } from "starknetkit";
+// import { connect as starknetkitconnect, disconnect } from "starknetkit";
 
 const provider = window.starknet;
 // const provider = window.starknet_bitkeep;
@@ -279,7 +279,7 @@ export default function StarkNetDApp() {
       </div>
 
       <div className="dapp-part">
-        <button
+        {/* <button
           onClick={async () => {
             try {
               const wallet = await starknetkitconnect()
@@ -287,7 +287,7 @@ export default function StarkNetDApp() {
           }}
         >
           starknetkitconnect
-        </button>
+        </button> */}
       </div>
 
       {/* <div className="dapp-part">
