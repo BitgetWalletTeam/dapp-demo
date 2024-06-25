@@ -22,12 +22,14 @@ import EthDApp from "./dapps/eth";
 import TonDApp from "./dapps/ton";
 import TonConnectDApp from "./dapps/tonConnect";
 import Deeplink from "./dapps/deeplink";
+import WalletConnect from "./dapps/walletConnect";
 
 // 但是使用最新solana，需要配置一些Buffer内容否则会报错：‘ReferenceError: Buffer is not defined’
 // window.Buffer = Buffer;
 
 export default function App() {
-  const chains = ["aptos", "aptos62", "cosmos", "starknet", "sui", "unisat", "solana", "ton", 'tonConnect'];
+  const chains = ["aptos", "aptos62", "cosmos", "starknet", "sui", "unisat", "solana", "eth", "ton", 'tonConnect', 'WalletConnect'];
+  
   return (
     <>
       <BrowserRouter>
@@ -49,9 +51,10 @@ export default function App() {
           <Route exact path="/sui" element={<SuiDApp />} />
           <Route exact path="/unisat" element={<UnisatDApp />} />
           <Route exact path="/solana" element={<SolanaDApp />} />
-          {/* <Route exact path="/eth" element={<EthDApp />} /> */}
+          <Route exact path="/eth" element={<EthDApp />} />
           <Route exact path="/ton" element={<TonDApp />} />
           <Route exact path="/tonConnect" element={<TonConnectDApp />} />
+          <Route exact path="/walletConnect" element={<WalletConnect />} />
         </Routes>
       </BrowserRouter>
     </>
